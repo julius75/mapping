@@ -8,14 +8,15 @@ data = pandas.read_csv("Volcanoes.txt")
 
 latitude = list(data["LAT"])
 longitude = list(data["LON"])
+elevation = list(data["ELEV"])
 
-map = folium.Map(location=[80, -100], zoom_start=6, tiles="MapBox Bright")
+map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="MapBox Bright")
 
 fg = folium.FeatureGroup(name="My Map")
 
 # add multitle markers
-for lt, lg in zip(latitude, longitude):
-    fg.add_child(folium.Marker(location=[lt, lg], popup="Hi Im a marker", icon=folium.Icon(color='green')))
+for lt, lg, el in zip(latitude, longitude, elevation):
+    fg.add_child(folium.Marker(location=[lt, lg], popup=str(el) + "m", icon=folium.Icon(color='green')))
 
 map.add_child(fg)
 
