@@ -15,11 +15,11 @@ elevation = list(data["ELEV"])
 
 def color_elevation(elevations):
     if elevations > 1000:
-        return 'green'
+        return "green"
     elif 1000 <= elevations > 3000:
-        return 'orange'
+        return "orange"
     else:
-        return 'red'
+        return "red"
 
 
 map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="MapBox Bright")
